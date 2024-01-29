@@ -58,4 +58,21 @@ title , and rental rate*/
  
  
  
+ /*The Film table has a title field containing name of movies. Some of the 
+ movie names are pretty long .Practice SUBSTR function to do following
+ */
+ 
+ 
+ --Return string after 10th character
+ SELECT title,SUBSTR(title,10) FROM film;
+ --after 15
+ SELECT title,LENGTH(title),SUBSTR(title,15) FROM film;
+ --after 5 character , just 3 char
+ SELECT title,SUBSTR(title,5,3) FROM film;
+ 
+ --after 5 character , just 1 char
+ SELECT title,SUBSTR(title,5,1) FROM film;
+ 
+ 
+ 
  
