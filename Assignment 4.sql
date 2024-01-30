@@ -49,3 +49,34 @@ DROP DATABASE IF EXISTS DB_NAME;
 DELETE FROM TB_NAME WHERE [] --> IF NO CONDITION PROVIDED ALL ROWS WILL BE DELETED ! carefull!!!
 
 DROP TABLE TB_NAME CASCADE; --> THIS WILL DELETE THE TABLE ALONG WITH THE OBJECTS THAT ARE RELATED TO THAT TABLE
+
+
+CREATE DATABASE mycommerce;
+
+CREATE TABLE order_details 
+(
+	order_id INT PRIMARY KEY,
+	customer_name VARCHAR(50) NOT NULL,
+	product_name VARCHAR(50) NOT NULL,
+	ordered_from VARCHAR(50) NOT NULL,
+	order_amount NUMERIC(10,2),
+	order_date DATE NOT NULL,
+	delivery_date DATE
+);
+
+SELECT product_name , COUNT(order_id) AS "no. of orders",
+SUM(order_amount) as "Total Sales"
+FROM order_details
+GROUP BY product_name;
+
+ALTER TABLE order_details
+RENAME COLUMN "customer_name" TO "customer_first_name"
+
+ALTER TABLE order_details
+ADD COLUMN "cancel_date" DATE NOT NULL;
+
+
+
+select * from order_details;
+
+
